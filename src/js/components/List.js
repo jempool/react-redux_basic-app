@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 
 const ConnectedList = ({ articles }) => (
-  <ul>
+  <ul className="list-group">
     {articles.map(el => (
-      <li key={el.id}>{el.title}</li>
+      <li key={el.id} className="list-group-item">{el.title}</li>
     ))}
   </ul>
 );

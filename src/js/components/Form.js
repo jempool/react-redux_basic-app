@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { addArticle } from "../actions/index";
 
-
 function mapDispatchToProps(dispatch) {
   return {
     addArticle: article => dispatch(addArticle(article))
@@ -29,22 +28,24 @@ class ConnectedForm extends Component {
     this.props.addArticle({ title });
     this.setState({ title: "" });
   }
-  
-  
+
   render() {
     const { title } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="title">Title</label>
+        <div className="form-group">
+          <label htmlFor="title"><h4>Title</h4></label>
           <input
+            className="form-control"
             type="text"
             id="title"
             value={title}
             onChange={this.handleChange}
           />
         </div>
-        <button type="submit">SAVE</button>
+        <button type="submit" className="btn btn-primary">
+          SAVE
+        </button>
       </form>
     );
   }
@@ -53,4 +54,3 @@ class ConnectedForm extends Component {
 const Form = connect(null, mapDispatchToProps)(ConnectedForm);
 
 export default Form;
-
